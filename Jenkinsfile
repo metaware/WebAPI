@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh "dotnet build WebAPI"
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh "dotnet test WebAPI"
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh "dotnet publish WebAPI"
             }
         }
     }
